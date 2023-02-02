@@ -1,1 +1,1 @@
-# minimalist_nomad_store
+# Minimalist Nomad Storefront
