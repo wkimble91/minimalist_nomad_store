@@ -10,14 +10,13 @@ export default function Header() {
     const [displayCheckout, setDisplayCheckout] = useState(false);
     const modalRef = useRef();
     async function checkout() {
-        const lineItems = Object.keys(
-            products.map((product) => {
-                return {
-                    price: product.id,
-                    quantity: 1,
-                };
-            })
-        );
+        const lineItems = Object.keys(state.products).map((id) => {
+            return {
+                price: id,
+                quantity: state.products[id],
+            };
+        });
+        console.log(lineItems);
 
         const res = await fetch('api/checkout', {
             method: 'POST',
@@ -25,7 +24,7 @@ export default function Header() {
         });
 
         const data = await res.json();
-        Router.push(data.session.url);
+        // Router.push(data.session.url);
     }
 
     function increment(id, size, count) {
@@ -34,6 +33,13 @@ export default function Header() {
                 type: 'vary_count',
                 value: [id, size, count + 1],
             });
+    }
+
+    function removeItem(id, size, count) {
+        dispatch({
+            type: 'remove_product',
+            value: [id, size, (count = 0)],
+        });
     }
 
     function decrement(id, size, count) {
@@ -73,7 +79,6 @@ export default function Header() {
                         <hr className='py-2' />
                         {Object.keys(state.products).map((productId, index) => {
                             const prod = state.products[productId];
-                            console.log(prod);
                             const product = state.prices.find(
                                 (val) => val.id === productId
                             );
@@ -83,8 +88,7 @@ export default function Header() {
                                     className='flex flex-col gap-4 text-neutral-700'
                                 >
                                     {Object.keys(prod).map((size) => {
-                                        const number = prod[size];
-                                        console.log(product);
+                                        const quantity = prod[size];
                                         return (
                                             <div
                                                 key={size}
@@ -98,7 +102,8 @@ export default function Header() {
                                                         $
                                                         {(product.unit_amount /
                                                             100) *
-                                                            number}
+                                                            quantity +
+                                                            '  '}
                                                     </p>
                                                 </div>
                                                 <div className='font-extralight flex justify-between items-center'>
@@ -107,14 +112,14 @@ export default function Header() {
                                                         <h1>
                                                             QUANTITY:{' '}
                                                             <span className='pl-4 border border-solid py-1 pr-6 border-gray-400 ml-3 relative'>
-                                                                {number}
+                                                                {quantity}
                                                                 <div className='absolute top-0 right-0 h-full w-3 flex flex-col '>
                                                                     <div
                                                                         className='leading-none scale-75 cursor-pointer'
                                                                         onClick={increment(
                                                                             productId,
                                                                             size,
-                                                                            number
+                                                                            quantity
                                                                         )}
                                                                     >
                                                                         <i className='fa-solid fa-chevron-up'></i>
@@ -124,7 +129,7 @@ export default function Header() {
                                                                         onClick={decrement(
                                                                             productId,
                                                                             size,
-                                                                            number
+                                                                            quantity
                                                                         )}
                                                                     >
                                                                         <i className='fa-solid fa-chevron-down'></i>

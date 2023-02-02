@@ -27,7 +27,6 @@ export default function Description(props) {
     function setSz(size) {
         return () => setSize(size);
     }
-    console.log(size);
     function addToBasket(prod) {
         //curried function
 

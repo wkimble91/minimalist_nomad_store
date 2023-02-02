@@ -78,7 +78,6 @@ export const AppReducer = (state = initialState, action) => {
             };
         }
         case 'load_items': {
-            console.log(action.value);
             return {
                 ...state,
                 prices: action.value.prices,
