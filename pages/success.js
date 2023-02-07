@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function success() {
-    return <div>success</div>;
+    return <div>Ordered Successfully!</div>;
 }

@@ -9,14 +9,15 @@ export default function Header() {
     const { state, dispatch } = useAppContext();
     const [displayCheckout, setDisplayCheckout] = useState(false);
     const modalRef = useRef();
+
     async function checkout() {
         const lineItems = Object.keys(state.products).map((id) => {
             return {
                 price: id,
-                quantity: state.products[id],
+                quantity: 1,
             };
         });
-        console.log(lineItems);
+        console.log('Here is line items quantity', state.products);
 
         const res = await fetch('api/checkout', {
             method: 'POST',
@@ -24,7 +25,8 @@ export default function Header() {
         });
 
         const data = await res.json();
-        // Router.push(data.session.url);
+
+        Router.push(data.session.url);
     }
 
     function increment(id, size, count) {

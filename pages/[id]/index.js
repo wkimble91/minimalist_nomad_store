@@ -34,8 +34,11 @@ export default function Description(props) {
             return;
         }
         return () => {
-            dispatch({ type: 'add_product', value: [prod.id, size] });
             setSize(null);
+            dispatch({
+                type: 'add_product',
+                value: [prod.id, size],
+            });
         };
     }
 
