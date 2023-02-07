@@ -17,7 +17,6 @@ export default function Header() {
                 quantity: 1,
             };
         });
-        console.log('Here is line items quantity', state.products);
 
         const res = await fetch('api/checkout', {
             method: 'POST',

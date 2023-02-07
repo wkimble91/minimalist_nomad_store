@@ -20,8 +20,6 @@ export default async function handler(req, res) {
             apiVersion: '2022-11-15',
         });
 
-        console.log('Here ya go:' + stripe); //check here
-
         const session = await stripe.checkout.sessions.create({
             success_url: 'https://store.minimalistnomad.world/success',
             cancel_url: 'https://store.minimalistnomad.world/cancel',
