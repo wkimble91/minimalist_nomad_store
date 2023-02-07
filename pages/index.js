@@ -36,8 +36,8 @@ export default function Home({ prices }) {
     return (
         <div className='flex flex-col flex-1 '>
             <Head>
-                <title>MN Apparel</title>
-                <meta name='description' content='Nextjs ecommerce store' />
+                <title>Minimalist Nomad Store</title>
+                <meta name='description' content='Minimalist Nomad ecommerce store' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
 

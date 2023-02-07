@@ -170,6 +170,7 @@ export default function Header() {
                 }
             >
                 Minimalist Nomad Store
+                {/* ADD THE LINKS HERE */}
             </div>
             <div
                 className='relative text-white cursor-pointer grid place-items-center transition hover:opacity-70 duration-300'
