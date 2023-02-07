@@ -7,7 +7,7 @@ export default function PurchaseCard(props) {
         return (
             <div
                 onClick={() => Router.push(`/${price.id}`)}
-                className='w-60 h-80 shadow-md border border-solid border-white cursor-pointer transition hover:opacity-80 hover:scale-105 bg-white'
+                className='w-60 h-80 shadow-md border border-solid border-white cursor-pointer transition hover:opacity-80 hover:scale-105 hover:rotate-1 bg-white'
             >
                 {price.product.images && (
                     <div className='h-60 object-contain'>
@@ -20,7 +20,7 @@ export default function PurchaseCard(props) {
                 <h1 className='text-sm text-center py-2 font-light tracking-light uppercase'>
                     {price.product.name}
                 </h1>
-                <p className='text-sm text-center py-2 font-extralight tracking-light'>
+                <p className='text-sm text-center py-1 font-extralight tracking-light'>
                     ${price.unit_amount / 100}
                 </p>
             </div>
