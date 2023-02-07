@@ -23,8 +23,8 @@ export default async function handler(req, res) {
         console.log('Here ya go:' + stripe); //check here
 
         const session = await stripe.checkout.sessions.create({
-            success_url: 'http://localhost:3000/success',
-            cancel_url: 'http://localhost:3000/cancel',
+            success_url: 'https://store.minimalistnomad.world/success',
+            cancel_url: 'https://store.minimalistnomad.world/cancel',
             line_items: body.lineItems,
             mode: 'payment',
         });
