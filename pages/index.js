@@ -41,13 +41,13 @@ export default function Home({ prices }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='relative flex flex-wrap gap-5 p-5 max-w-6xl my-0 mx-auto justify-center '>
+      <div className='relative flex flex-wrap gap-5 p-5 max-w-6xl my-0 mx-auto justify-center '>
         {prices.map((price, index) => {
           return (
             <PurchaseCard key={index} className='my-2 h-20' price={price} />
           );
         })}
-      </main>
+      </div>
     </div>
   );
 }
