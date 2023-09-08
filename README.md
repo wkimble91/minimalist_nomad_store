@@ -1,5 +1,5 @@
 # Minimalist Nomad Storefront
-
+![Vercel](https://vercelbadge.vercel.app/api/wkimble91/minimalist-nomad-store)
 =======
 
 This is a  e-commerce store built with [Next.js](https://nextjs.org/), [tailwindcss](https://tailwindcss.com), and [Stripe](https://stripe.com/).
